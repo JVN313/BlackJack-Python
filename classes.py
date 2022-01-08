@@ -2,7 +2,7 @@ import random
 class Card():
 
     def __init__(self):
-        self.value = random.randint(2,11)
+        self.value = random.randint(1,11)
 
 class Hand():
 
@@ -17,20 +17,6 @@ class Hand():
 
 class Player():
 
-    def __init__(self):
-        self.name = input("Enter Player name: ")
+    def __init__(self, name):
+        self.name = name
         self.hand = Hand(Card(), Card())
-
-player1 = Player()
-
-if player1.hand.total == 21:
-    print(f"{player1.name} You Won!")
-    quit()
-
-
-choice = input(f"Your Hand Amount is {player1.hand.total}. Would You Like?: ").upper()
-
-if choice == "H":
-    player1.hand.Hit()
-    print(player1.hand.total)
-
