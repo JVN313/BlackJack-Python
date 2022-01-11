@@ -8,7 +8,7 @@ dealer_win_range = [18, 19, 20]
 
 def Replay():
     global player1, dealer
-    player_input = input("Would You Like To Play Again? ").upper()
+    player_input = input("Would You Like To Play Again? \n").upper()
     if Replay_Validation(player_input) == "Y" or Replay_Validation(player_input) == "YES":
         player1 = Player(p_name)
         dealer = Player("The Dealer")
@@ -22,13 +22,13 @@ def GameLoop():
     while player1.hand.total < 21:
         
         print(f"Your Hand Amount is {player1.hand.total}.")
-        choice = Choice_Validation( input("Would You Like To Hit Or Stay?: ").upper())
+        choice = Choice_Validation( input("Would You Like To Hit Or Stay?: \n").upper())
 
         if choice == "H" or choice == "HIT":
             player1.hand.Hit()
-            print(player1.hand.total)
+            print(f"{player1.hand.total}\n")
         elif choice == "S" or choice == "STAY":
-            print(f"It's {dealer.name}'s Turn")
+            print(f"It's {dealer.name}'s Turn\n")
             break
 
         if player1.hand.total > 21:
@@ -46,7 +46,7 @@ def GameLoop():
     while dealer.hand.total < 21:
 
         print(f"{dealer.name}'s Hand Is {dealer.hand.total}")
-        print(f"{dealer.name} Hits")
+        print(f"{dealer.name} Hits\n")
         dealer.hand.Hit()
 
         if dealer.hand.total in dealer_win_range:
